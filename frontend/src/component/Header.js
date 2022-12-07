@@ -9,9 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import {Link, Outlet} from "react-router-dom";
 
 
 const pages = ['Recipes', 'Menu', 'Shopping List'];
+//const links = ['Recipes','Menu','ShoppingList']
+const links = [<Link to='/'>Recipes</Link>, <Link to='/Menu'>Menu</Link>, <Link to='ShoppingList'>Shopping List</Link>]
 
 
 function ResponsiveAppBar() {
@@ -29,7 +32,7 @@ function ResponsiveAppBar() {
 
 
   return (
-    <AppBar position="static" className='AppBar'>
+    <AppBar position="static" style={{background: '#57D837'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -108,6 +111,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
+                LinkComponent={links[pages.indexOf(page)]}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
