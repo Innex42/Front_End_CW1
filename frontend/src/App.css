@@ -1,3 +1,7 @@
 color-nav {
     background-color: "#57D837";
 }
+
+FoodItems {
+    display: inline-block;
+}
