@@ -1,15 +1,16 @@
 import React from "react";
-import FoodItem from "./FoodItem";
+import { recipes } from "../data/data";
+import FetchRecipes from "./FetchRecipes";
+import Search from "./Search";
 
 const Recipes = () => {
     return(
         <>
-            <div>
+            <div align="center">
                 <h1>Recipes</h1>
             </div>
-            <div>
-                <FoodItem />
-            </div>
+            <Search details={recipes} />
+                {/* <FetchRecipes />*/}
         </>
     );
 };

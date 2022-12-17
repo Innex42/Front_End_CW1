@@ -1,9 +1,17 @@
 import React from "react";
+import ShoppingListItem from "./ShoppingListItem";
 
 const ShoppingList = () => {
     return(
         <>
-            <h1>Shopping List</h1>
+            <div align="center">
+                <h1>Shopping List</h1>
+                <br/>
+                <br/>
+            </div>
+            
+            <ShoppingListItem/>
+            
         </>
     );
 };
