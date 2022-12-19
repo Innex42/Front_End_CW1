@@ -11,3 +11,15 @@ color-nav {
     font-size: 12px;
     line-height: 1.42857;
 }
+
+.accordion-header {
+    color: lightgray;
+    background-color: lightgrey;
+}
+
+body{
+    background-color:#68A955;
+}
+h1{
+    color: white;
+}

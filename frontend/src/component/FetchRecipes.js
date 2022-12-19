@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import FoodItem from "./FoodItem";
 import Search from './Search';
 
 const FetchRecipes = () => {
@@ -8,6 +7,9 @@ const FetchRecipes = () => {
         name: "",
         description: "",
         instructions: "",
+        category:"",
+        prepTime:"",
+        cookTime:"",
         vegetarian: null,
         glutenFree: null,
         rating: null,
@@ -36,7 +38,7 @@ const FetchRecipes = () => {
     }]);
 
     const fetchRecipes = useCallback(() => {
-        const url = "http://localhost:3001/recipes";
+        const url = "http://localhost:3001";
         fetch(url)
             .then((response) => response.json())
             .then((incomingData) => {
@@ -53,7 +55,7 @@ const FetchRecipes = () => {
     return (
         <div>
             {console.log(recipes)}
-            <FoodItem items={recipes}/>
+            <Search items={recipes}/>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { BsPlusCircle, BsDashCircle } from "react-icons/bs"
 import Stack from "react-bootstrap/esm/Stack";
 import Button from "react-bootstrap/esm/Button";
 
+
 const MenuItem = () => {
     return (
         <div style={{
@@ -40,7 +41,7 @@ const MenuItem = () => {
                     <hr/>
                     <div>
                         <Accordion >
-                            <Accordion.Item>
+                            <Accordion.Item eventKey="0">
                                 <Accordion.Header style={{ backgroundColor: 'light' }}>
                                     <b>Ingredient List</b>
                                 </Accordion.Header>

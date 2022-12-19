@@ -5,6 +5,8 @@ function Search({ details }) {
     const [searchField, setSearchField] = useState("");
     console.log(details);
 
+    
+
     const filtered = details.filter((entry) => {
         return entry.description.toLowerCase().includes(searchField.toLowerCase()) || entry.name.toLowerCase().includes(searchField.toLowerCase());
     });
@@ -33,7 +35,7 @@ function Search({ details }) {
             <br/>
             <br/>
             <div>
-                <DisplayFoodItems recipes={filtered} />
+                <DisplayFoodItems recipes={filtered}  />
             </div>
         </div>
     );

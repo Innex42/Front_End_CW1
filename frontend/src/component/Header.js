@@ -20,7 +20,7 @@ function Header() {
               <Nav.Link to="/Menu">Menu</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/ShoppingList">
-              <Nav.Link to="ShoppingList">ShoppingList</Nav.Link>
+              <Nav.Link to="ShoppingList">Shopping List</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

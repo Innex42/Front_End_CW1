@@ -3,6 +3,7 @@ import FoodItem from './FoodItem';
 
 
 const DisplayFoodItems = ({recipes }) => {
+    
    return (
        <div>
            {recipes.map((recipe, index) => {

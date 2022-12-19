@@ -9,8 +9,9 @@ const Recipes = () => {
             <div align="center">
                 <h1>Recipes</h1>
             </div>
+            
             <Search details={recipes} />
-                {/* <FetchRecipes />*/}
+                {/*<FetchRecipes /> */}
         </>
     );
 };
