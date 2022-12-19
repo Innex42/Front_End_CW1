@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/controllers");
 
-router.get("/", controller.listRecipes);
-router.get("/recipes", controller.listRecipes);
-router.get("/menu", controller.listMenu);
+router.get('/', controller.listRecipes);
+router.get('/recipes', controller.listRecipes);
+router.get('/menu', controller.listMenu);
 router.post('/addMenuItem', controller.addMenuItem);
 router.get('/new', controller.newList);
-
+router.get('/nutrition', controller.getNutrition);
 
 
 router.use(function(req, res) {
