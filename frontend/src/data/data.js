@@ -35,7 +35,7 @@ export const recipes =[
             },
             {
                 ingredientID: 2,
-                ingredientName: "CornFlour",
+                ingredientName: "Corn Flour",
                 measurementSize: 50,
                 measurementUnit: "g",
                 prepStyle: "",

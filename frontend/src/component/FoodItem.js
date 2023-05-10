@@ -13,10 +13,12 @@ import FetchData from "./FetchNutrition";
 
 const FoodItem = ({ recipes, index }) => {
     
-    const [selectedItem,setSelectedItem] = useState("")
+    const [selectedItems,setSelectedItems] = useState([])
     
-    const handleClick = (currentItem) => {
-        setSelectedItem(currentItem)
+    const handleClick = (e,selectedItem) => {
+        let newState = [...selectedItem, selectedItems];
+        setSelectedItems(newState);
+        console.log(selectedItem);
     }
 
     let ingredientsForNutrition;
@@ -28,8 +30,11 @@ const FoodItem = ({ recipes, index }) => {
         }else if (recipes.ingredientsInRecipe[i].getNutrition===true) {
         ingredientsForNutrition=(ingredientsForNutrition) + (recipes.ingredientsInRecipe[i].measurementSize.toString()) + (recipes.ingredientsInRecipe[i].measurementUnit.toString()) + " " + (recipes.ingredientsInRecipe[i].ingredientName.toString()) + " + ";
         ingredientsForNutrition=ingredientsForNutrition.toString();
+        
     }
     };
+    
+    let testNutrition =(recipes.ingredientsInRecipe[0].measurementSize.toString()) + (recipes.ingredientsInRecipe[0].measurementUnit.toString()) + " " + (recipes.ingredientsInRecipe[0].ingredientName.toString()) + "+" +(recipes.ingredientsInRecipe[1].measurementSize.toString()) +  (recipes.ingredientsInRecipe[1].measurementUnit.toString()) + " " + (recipes.ingredientsInRecipe[1].ingredientName.toString())
 
 
     let instructions = recipes.instructions;
@@ -44,12 +49,12 @@ const FoodItem = ({ recipes, index }) => {
                 <Card.Body>
                     <Stack direction="vertical" gap={3}>
                         <Card.Title>{recipes.name}</Card.Title>
-                        <div><b>Number of Servings:</b> {recipes.numOfServings} </div>
-                        <br/>
-                        {/* <Stack direction="horizontal" gap={3}>
-                            <div> <Button variant="success">Add to Menu</Button> </div>
-                            <div className="d-flex justify-content-end "><BsSuitHeart/></div>
-                            </Stack> */}
+                         <Stack direction="horizontal" gap={3}>
+                         <div><b>Number of Servings:</b> {recipes.numOfServings} </div>
+                            <div className="d-flex ms-auto"> <Button variant="success"onClick={() => handleClick(recipes)}>Add to Menu</Button> </div>
+                            <div><BsSuitHeart/></div>
+                            </Stack> 
+                            <br/>
                     </Stack>
                     <Accordion >
                         <Accordion.Item eventKey="0">
@@ -78,10 +83,9 @@ const FoodItem = ({ recipes, index }) => {
                                     <Tab eventKey={4} title="Nutrition"  >
                                         <Stack direction="horizontal" gap={10} >
                                         <div><h3>Total Nutrition</h3></div>
-                                        <div className="ms-auto"><Button variant="success" onClick={() => handleClick(ingredientsForNutrition)}>Get Nutrition</Button></div>
                                         </Stack>
-                                        <FetchData query={ingredientsForNutrition} />
-                                        {/*<FetchData query={selectedItem}/>*/}
+                                        
+                                        <FetchData query={ingredientsForNutrition}/>
                                     </Tab>
                                     <Tab eventKey={5} title="Dietary Info">
                                         <h3>Dietary Information</h3>
@@ -90,11 +94,6 @@ const FoodItem = ({ recipes, index }) => {
 
                                     </Tab>
                                 </Tabs>
-                                <Stack direction="horizontal" gap={3}>
-                                    <div> <Button variant="success" >Add to Menu</Button> </div>
-                                    <div className="d-flex justify-content-end "><BsSuitHeart /></div>
-                                    <br />
-                                </Stack>
                             </Accordion.Body>
                             </Accordion.Item >
                             </Accordion >

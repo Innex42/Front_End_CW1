@@ -3,45 +3,46 @@ import Search from './Search';
 
 const FetchRecipes = () => {
     const [recipes, setRecipes] = useState([{
-        id: null,
+        id: "",
         name: "",
         description: "",
         instructions: "",
         category:"",
         prepTime:"",
         cookTime:"",
-        vegetarian: null,
-        glutenFree: null,
-        rating: null,
-        numOfServings: null,
+        vegetarian: "",
+        glutenFree: "",
+        rating: "",
+        numOfServings: "",
         nutrition: {
-            sugar_g: null,
-            fiber_g: null,
-            serving_size_g: null,
-            sodium_mg: null,
-            potassium_mg: null,
-            fat_saturated_g: null,
-            fat_total_g: null,
-            calories: null,
-            cholesterol_mg: null,
-            protein_g: null,
-            carbohydrates_total_g: null,
+            sugar_g: "",
+            fiber_g: "",
+            serving_size_g: "",
+            sodium_mg: "",
+            potassium_mg: "",
+            fat_saturated_g: "",
+            fat_total_g: "",
+            calories: "",
+            cholesterol_mg: "",
+            protein_g: "",
+            carbohydrates_total_g: "",
         },
         ingredientsInRecipe: [{
-            ingredientID: null,
+            ingredientID: "",
             ingredientName: "",
-            measurementSize: null,
+            measurementSize: "",
             measurementUnit: "",
             prepStyle: "",
-            getNutrition: null,
+            getNutrition: "",
         }]
     }]);
 
     const fetchRecipes = useCallback(() => {
-        const url = "http://localhost:3001";
+        const url = "http://localhost:3001/";
         fetch(url)
             .then((response) => response.json())
             .then((incomingData) => {
+                console.log(url);
                 console.log(incomingData)
                 setRecipes(incomingData);
             })
@@ -50,8 +51,10 @@ const FetchRecipes = () => {
 
     useEffect(() => {
         fetchRecipes();
+        
     }, [fetchRecipes]);
 
+    console.log(recipes);
     return (
         <div>
             {console.log(recipes)}
