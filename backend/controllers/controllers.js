@@ -10,7 +10,7 @@ exports.newList = function (req, res) {
 exports.listRecipes = function (req, res){
     recipes.getAllEntries()
         .then((list) => {
-            res.json(list);
+            res.json({recipes: list});
             console.log(list);
         })
         .catch((err) => {
