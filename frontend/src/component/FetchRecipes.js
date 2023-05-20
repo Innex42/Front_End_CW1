@@ -37,29 +37,31 @@ const FetchRecipes = () => {
         }]
     }]);
 
+
+    
+
     const fetchRecipes = useCallback(() => {
         const url = "http://localhost:3001/";
-        fetch(url)
+        const options = { method: "GET"};
+            console.log(url);
+        fetch(url, options)
             .then((response) => response.json())
             .then((incomingData) => {
-                console.log(url);
-                console.log(incomingData)
-                setRecipes(incomingData);
+                console.log(incomingData);
+                setRecipes(incomingData.recipes);
             })
             .catch((err) => console.error(err));
     }, []);
 
     useEffect(() => {
         fetchRecipes();
-        
     }, [fetchRecipes]);
 
-    console.log(recipes);
+    
     return (
         <div>
-            {console.log(recipes)}
             <Search items={recipes}/>
         </div>
-    )
-}
+    );
+};
 export default FetchRecipes;

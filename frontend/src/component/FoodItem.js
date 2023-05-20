@@ -85,7 +85,8 @@ const FoodItem = ({ recipes, index }) => {
                                         <div><h3>Total Nutrition</h3></div>
                                         </Stack>
                                         
-                                        <FetchData query={ingredientsForNutrition}/>
+                                        {/*<FetchData query={ingredientsForNutrition}/>*/}
+
                                     </Tab>
                                     <Tab eventKey={5} title="Dietary Info">
                                         <h3>Dietary Information</h3>
